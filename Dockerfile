@@ -5,6 +5,7 @@ WORKDIR /app
 RUN apt-get update -qq && apt-get install -y nodejs npm
 
 ENV RAILS_ENV=production
+ENV SECRET_KEY_BASE=dummy
 
 COPY Gemfile Gemfile.lock ./
 RUN bundle install
