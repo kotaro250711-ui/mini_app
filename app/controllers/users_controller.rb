@@ -8,6 +8,7 @@ class UsersController < ApplicationController
 
   # GET /users/1 or /users/1.json
   def show
+    @user=User.find(params[:id])
   end
 
   # GET /users/new
@@ -60,11 +61,11 @@ class UsersController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
-      @user = User.find(params[:id])
+      @user = current_user
     end
 
     # Only allow a list of trusted parameters through.
     def user_params
-      params.require(:user).permit(:name, :age)
+      params.require(:user).permit(:name, :age, :email, :password, :password_confirmation)
     end
 end

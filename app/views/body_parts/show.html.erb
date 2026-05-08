@@ -1,6 +1,7 @@
-<div id="<%= dom_id user %>">
+<h1><%=@body_part.name%></h1>
+
 <div class="row m-2">
- <%user.posts.each do |inf|%>
+ <%@posts.each do |inf|%>
   
 <div class="card  col-4 m-2" >
   <div class="card-body ">
@@ -9,7 +10,7 @@
   </div>
   <ul class="list-group list-group-flush">
     <li class="list-group-item">部位 <%=inf.body_part.name%></li>
-    <li class="list-group-item">投稿者   <%= link_to inf.user.name, user, class:"card-link" %></li>
+    <li class="list-group-item">投稿者   <%= link_to inf.user.name, user_path(inf), class:"card-link" %></li>
   </ul>
   <%if inf.user==current_user%>
   <div class="card-body">
@@ -21,8 +22,4 @@
 
   <%end%>
 </div>
-  
-
-</div>
-
-
+<%= link_to "投稿一覧に戻る", users_path %>

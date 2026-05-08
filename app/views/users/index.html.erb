@@ -2,15 +2,34 @@
 
 <% content_for :title, "Users" %>
 
-<h1>Users</h1>
+<h1>投稿一覧</h1>
 
 <div id="users">
+<div class="row m-2 w-100">
   <% @users.each do |user| %>
-    <%= render user %>
-    <p>
-      <%= link_to "Show this user", user %>
-    </p>
-  <% end %>
-</div>
 
+ <%user.posts.each do |inf|%>
+  
+<div class="card  col-3 mx-2" >
+  <div class="card-body ">
+    <h5 class="card-title"><%=inf.exercise_name%></h5>
+    <p class="card-text"><%=inf.content%></p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">部位 <%=inf.body_part.name%></li>
+    <li class="list-group-item">投稿者   <%= link_to inf.user.name, user, class:"card-link" %></li>
+  </ul>
+  <%if inf.user==current_user%>
+  <div class="card-body">
+    <%=link_to "編集", edit_post_path(inf) %>
+    <%=link_to "削除", post_path(inf),data: { turbo_method: :delete} %>
+  </div>
+  <%end%>
+ </div>
+
+  <%end%>
+ <% end %>
+ </div>
+</div>
+<%= link_to "投稿", new_post_path%>
 <%= link_to "New user", new_user_path %>

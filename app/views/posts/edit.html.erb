@@ -1,0 +1,23 @@
+<p style="color: red"><%=flash[:alert]%></p>
+<h1>編集ページ</h1>
+
+<%=form_with model: @post,url: post_path(@post),local: true do |form|%>
+    <div class="mb-3">
+    <%=form.label :body_part_id,"部位",style: "display:block"%>
+    <%=form.collection_select :body_part_id, BodyPart.all, :id, :name%>
+    </div>
+    <div class="mb-3">
+    <%=form.label :exercise_name, "種目名",style: "display:block"%>
+    <%=form.text_field :exercise_name%>
+    </div>
+    <div class="mb-3">
+    <%=form.label :content,"内容", style:"display:block"%>
+    <%=form.text_area :content%>
+    </div>
+
+    <div>
+    <%= form.submit '投稿' %>
+    </div>
+<%end%>
+<%= link_to "投稿一覧に戻る", users_path %>
+

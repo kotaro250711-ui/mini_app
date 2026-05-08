@@ -3,8 +3,12 @@
 <%= render @user %>
 
 <div>
-  <%= link_to "Edit this user", edit_user_path(@user) %> |
-  <%= link_to "Back to users", users_path %>
-
+<%if @user==current_user%>
+<%= link_to "Edit this user", edit_user_path(@user) %> |
+  <%end%>
+  
+  <%= link_to "投稿一覧に戻る", users_path %>
+<%if @user==current_user%>
   <%= button_to "Destroy this user", @user, method: :delete %>
+  <%end%>
 </div>
