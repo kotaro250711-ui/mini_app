@@ -7,9 +7,9 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
-BodyPart.find_or_create_by(name:"胸")
-BodyPart.find_or_create_by(name:"背中")
-BodyPart.find_or_create_by(name:"肩")
-BodyPart.find_or_create_by(name:"腕")
-BodyPart.find_or_create_by(name:"脚")
+BodyPart.find_or_create_by!(name:"背中")
+BodyPart.find_or_create_by!(name:"肩")
+BodyPart.find_or_create_by!(name:"腕")
+BodyPart.find_or_create_by!(name:"脚")
+BodyPart.find_or_create_by!(name:"胸")
 
