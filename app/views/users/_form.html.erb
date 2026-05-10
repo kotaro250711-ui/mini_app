@@ -12,33 +12,34 @@
   <% end %>
 
   <div>
-    <%= form.label :name, style: "display: block" %>
+    <%= form.label :name,"ユーザー名", style: "display: block" %>
     <%= form.text_field :name %>
   </div>
 
   <div>
-    <%= form.label :age, style: "display: block" %>
+    <%= form.label :age,"年齢", style: "display: block" %>
     <%= form.number_field :age %>
   </div>
   
   <div>
-  <%= form.label :email, style: "display: block" %>
+  <%= form.label :email,"メールアドレス", style: "display: block" %>
   <%= form.email_field :email %>
   </div>
 
   <div>
-    <%= form.label :password, style: "display: block" %>
+    <%= form.label :password,"パスワード", style: "display: block" %>
     <%= form.password_field :password%>
   </div>
 
   <div>
-    <%= form.label :password_confirmation, style: "display: block" %>
+    <%= form.label :password_confirmation,"再度パスワード", style: "display: block" %>
     <%= form.password_field :password_confirmation,autocomplete:"new-password" %>
   </div>
 
   
   <div>
-    <%= form.submit %>
+    <%= form.submit "編集完了", class:"btn btn-success mt-2" %>
+
   </div>
 <% end %>
 

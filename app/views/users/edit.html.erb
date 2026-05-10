@@ -1,12 +1,15 @@
 <% content_for :title, "Editing user" %>
-
-<h1>Editing user</h1>
+<div class="p-2">
+<h1>ユーザー情報を編集</h1>
 
 <%= render "form", user: @user %>
 
 <br>
 
-<div>
-  <%= link_to "Show this user", @user %> |
-  <%= link_to "Back to users", users_path %>
+<div class="mb-3">
+  <%= link_to "ユーザー詳細に戻る", @user,class:"mt-2" %> 
+  </div>
+  <div>
+  <%=  link_to "みんなの投稿一覧に戻る", users_path %>
+</div>
 </div>

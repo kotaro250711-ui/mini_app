@@ -1,4 +1,5 @@
-<p style="color: red"><%=flash[:alert]%></p>
+<p class="m-0 text-danger"><%=flash[:alert]%></p>
+<div class="p-2">
 <h1>編集ページ</h1>
 
 <%=form_with model: @post,url: post_path(@post),local: true do |form|%>
@@ -16,8 +17,10 @@
     </div>
 
     <div>
-    <%= form.submit '投稿' %>
+    <%= form.submit '投稿', class:"btn btn-info mb-2 " %>
     </div>
 <%end%>
 <%= link_to "投稿一覧に戻る", users_path %>
+</div>
+
 
