@@ -1,10 +1,16 @@
 class PostsController < ApplicationController
   def new
+    if current_user
     @post=Post.new
+    else
+    flash[:alert]="ログインが必要です"
+    redirect_to new_login_path
+  end 
   end
 
   def create
-  @post=current_user.posts.new(post_params)
+  
+     @post=current_user.posts.new(post_params)
   
   if @post.save
     redirect_to root_path, notice:"投稿しました"
@@ -12,6 +18,7 @@ class PostsController < ApplicationController
     flash.now[:alert]=@post.errors.full_messages.join(", ")
     render :new, status: :unprocessable_entity
   end
+  
   end
 
   def edit
